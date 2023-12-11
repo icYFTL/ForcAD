@@ -1,0 +1,18 @@
+$topbar-primary-color: #bbbbbb55;
+$progress-bar-primary-color: #00ff00;
+$body-primary-color: #fff;
+$default-text-primary-color: #000;
+
+.topbar-light {
+  background: $topbar-primary-color;
+  transition: background-color 1s ease-in-out, color 1s ease-in-out;;
+}
+.progress-bar-light {
+  background-color: $progress-bar-primary-color;
+  transition: background-color 1s ease-in-out, color 1s ease-in-out;;
+}
+.app-light {
+  background: $body-primary-color;
+  color: $default-text-primary-color;
+  transition: background-color 1s ease-in-out, color 1s ease-in-out;;
+}

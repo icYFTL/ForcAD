@@ -14,14 +14,22 @@ const store = new Vuex.Store({
         roundTime: null,
         roundStart: null,
         roundProgress: null,
-
-        teams: null,
+        // constructor({ name, ip, id, teamTasks, tasks, highlighted }) {
+        //     this.name = name;
+        //     this.ip = ip;
+        //     this.id = id;
+        //     this.highlighted = highlighted;
+        //     this.taskModels = tasks;
+        //     this.update(teamTasks);
+        // }
+        teams: null, //[new Team({name: 'Test', ip: '192.168.1.1', teamTasks: [], tasks: [], highlighted: false})],
         tasks: null,
         teamTasks: null,
-
+        firstBlood: false,
         showPonies: true,
 
         layout: 'default-layout',
+        theme: false
     },
     mutations: {
         setRound(state, round) {
@@ -58,10 +66,15 @@ const store = new Vuex.Store({
         togglePonies(state) {
             state.showPonies = !state.showPonies;
         },
-
         setLayout(state, layout) {
             state.layout = layout;
         },
+        toggleDarkTheme(state){
+            state.theme = !state.theme;
+        },
+        toggleFirstBlood(state) {
+            state.firstBlood = !state.firstBlood;
+        }
     },
     getters: {
         layout(state) {

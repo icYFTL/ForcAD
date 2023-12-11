@@ -1,0 +1,18 @@
+$topbar-primary-color: rgba(91, 91, 91, 0.33);
+$progress-bar-primary-color: #00ff00;
+$body-primary-color: #1c1a1a;
+$default-text-primary-color: #ffffff;
+
+.topbar-dark {
+  background: $topbar-primary-color;
+  transition: background-color 1s ease-in-out, color 1s ease-in-out;;
+}
+.progress-bar-dark  {
+  background-color: $progress-bar-primary-color;
+  transition: background-color 1s ease-in-out, color 1s ease-in-out;;
+}
+.app-dark {
+  background: $body-primary-color;
+  color: $default-text-primary-color;
+  transition: background-color 1s ease-in-out, color 1s ease-in-out;
+}

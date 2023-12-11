@@ -3,7 +3,7 @@
         <div
             v-for="status in statuses"
             :key="status"
-            :style="{ backgroundColor: getTeamTaskBackground(status) }"
+            :style="{ backgroundColor: getTeamTaskBackground(status), 'text-shadow': theme ? '1px 1px 1px #000' : 'unset'}"
             class="status-cell"
         >
             {{ statusesNames[status] }}
@@ -14,6 +14,7 @@
 <script>
 import { statuses, statusesNames } from '@/config';
 import { getTeamTaskBackground } from '@/utils/colors';
+import { mapState } from 'vuex';
 
 export default {
     data: function () {
@@ -23,6 +24,7 @@ export default {
             getTeamTaskBackground,
         };
     },
+  computed: mapState(['theme']),
 };
 </script>
 
