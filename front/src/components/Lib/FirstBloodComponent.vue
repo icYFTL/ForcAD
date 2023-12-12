@@ -1,18 +1,25 @@
 <template>
   <div>
-    <VueParticleJs :config="particlesConfig" :domId=domId />
+    <VueParticleJs :config="particlesConfig" :domId=domId :style="displayStyle" style="visibility: " />
   </div>
 </template>
 
 <script>
 import VueParticleJs from "@/components/Lib/VueParticleJs.vue"; // Путь к вашему компоненту VueParticleJs
+import {mapState} from 'vuex';
 
 export default {
   components: {
     VueParticleJs,
   },
+  computed: {
+    ...mapState(["firstBloodRowIndex"]),
+  displayStyle() {
+      return this.index === this.firstBloodRowIndex ? 'visibility: visible;' : 'visibility: collapse;';
+  }},
   props:{
-    domId: String
+    domId: String,
+    index: Number
   },
   data() {
     return {
@@ -130,3 +137,6 @@ export default {
   },
 };
 </script>
+<style scoped>
+
+</style>

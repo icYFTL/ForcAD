@@ -25,7 +25,8 @@ const store = new Vuex.Store({
         teams: null, //[new Team({name: 'Test', ip: '192.168.1.1', teamTasks: [], tasks: [], highlighted: false})],
         tasks: null,
         teamTasks: null,
-        firstBlood: false,
+        firstBloodScreen: false,
+        firstBloodRowIndex: -1,
         showPonies: true,
 
         layout: 'default-layout',
@@ -72,8 +73,11 @@ const store = new Vuex.Store({
         toggleDarkTheme(state){
             state.theme = !state.theme;
         },
-        toggleFirstBlood(state) {
-            state.firstBlood = !state.firstBlood;
+        toggleFirstBloodScreen(state) {
+            state.firstBloodScreen = !state.firstBloodScreen;
+        },
+        setFirstBloodRowIndex(state, index){
+            state.firstBloodRowIndex = index;
         }
     },
     getters: {

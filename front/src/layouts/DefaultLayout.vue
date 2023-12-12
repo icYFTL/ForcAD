@@ -7,13 +7,16 @@
       <slot/>
     </container>
     <footer class="footer">
-      <div class="first-blood-layout" :class="{ 'red-screen': firstBlood }"></div>
+      <div class="first-blood-layout" :class="{ 'red-screen': firstBloodScreen }"></div>
       <button v-if="isDev" @click="toggleRed">Toggle Red</button>
+      <button v-if="isDev" @click="setFirstBlood">First blood</button>
       <div class="footer-author">
         Powered by
         <span class="team">C4T BuT S4D</span> CTF team
         <br>
-        Designed by icYFTL
+        <span style="font-family: '8bits',sans-serif; font-size: 1.8em">
+          <a target="_blank" style="text-decoration: none; color: inherit;" href="https://github.com/icYFTL">icYFTL</a>
+          with <img src="@/assets/img/heart.png" alt="heart" width="20px" height="20px"></span>
       </div>
     </footer>
   </div>
@@ -39,15 +42,18 @@ export default {
   },
   methods: {
     toggleRed() {
-      this.$store.commit('toggleFirstBlood');
+      this.$store.commit('toggleFirstBloodScreen');
       setTimeout(() => {
-        this.$store.commit('toggleFirstBlood');
+        this.$store.commit('toggleFirstBloodScreen');
       }, 5000);
     },
+    setFirstBlood() {
+      this.$store.commit('setFirstBloodRowIndex', 1);
+    }
   },
 
   computed: {
-    ...mapState(['theme', 'firstBlood']),
+    ...mapState(['theme', 'firstBloodScreen']),
     isDev() {
       return import.meta.env.DEV;
     }
@@ -82,6 +88,10 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/css/style-light";
 @import "@/assets/css/style-dark";
+@font-face {
+  font-family: '8bits';
+  src: url('@/assets/fonts/EightBits.ttf')  format('truetype');
+}
 
 #app {
   height: 100%;

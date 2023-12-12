@@ -133,3 +133,10 @@ services:
     ports:
       - "5432:5432"
       - "6432:5432"
+
+  test-service:
+    build:
+      context: ./tests/service
+    ports:
+      - "10000:10000"
+    restart: "no"

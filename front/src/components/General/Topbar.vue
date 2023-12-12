@@ -3,9 +3,9 @@
     <div class="theme-togler">
       <img src="@/assets/img/dark-toggle.svg" alt="Touch me" @click="onThemeToggle">
     </div>
-    <router-link class="tp live-button" to="/live/"> Live</router-link>
+    <!--    <router-link class="tp live-button" to="/live/"> Live</router-link>-->
     <div :class="progressBarClass" :style="{ width: `${roundProgress}%` }"/>
-    <div class="tp">Round: {{round}}  <!--TODO: Animation -->
+    <div class="tp">Round: {{ round }}  <!--TODO: Animation -->
     </div>
   </div>
 </template>

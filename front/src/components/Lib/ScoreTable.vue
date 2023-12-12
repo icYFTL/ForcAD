@@ -121,8 +121,9 @@
               <span class="tooltip">{{ message }}</span>
             </button>
             <div class="sla">
-              <strong>SLA</strong>
-              : {{ sla.toFixed(2) }}%
+              <SlaProgressBar :percent="sla" style="width: 100%"></SlaProgressBar>
+<!--              <strong>SLA</strong>-->
+<!--              : {{ sla.toFixed(2) }}%-->
             </div>
             <div class="fp">
               <strong>FP</strong>
@@ -134,7 +135,7 @@
             </div>
           </div>
         </div>
-        <FirstBloodComponent class="effects-fb" :dom-id="'particles-container' + index"></FirstBloodComponent>
+        <FirstBloodComponent class="effects-fb" :dom-id="'particles-container' + index" :index="index"></FirstBloodComponent>
       </div>
     </transition-group>
   </div>
@@ -145,10 +146,11 @@ import {getTeamRowBackground, getTeamTaskBackground} from '@/utils/colors';
 import '@/assets/table.scss';
 import {mapState} from 'vuex';
 import FirstBloodComponent from "@/components/Lib/FirstBloodComponent.vue";
+import SlaProgressBar from "@/components/Lib/SlaProgressBar.vue";
 
 
 export default {
-  components: {FirstBloodComponent},
+  components: {SlaProgressBar, FirstBloodComponent},
   props: {
     headRowTitle: {
       type: String,
@@ -179,7 +181,7 @@ export default {
   },
 
   computed: {
-    ...mapState(['theme']),
+    ...mapState(['theme', "firstBloodRowIndex"]),
     teamStyle: function () {
       return this.teamClickable
           ? {
